@@ -1,0 +1,15 @@
+proto_library(
+    name = "tortilla_proto",
+    srcs = [
+        "ops.proto",
+        "stream.proto",
+        "tortilla.proto",
+    ],
+)
+
+load("@rules_proto_grpc//cpp:defs.bzl", "cpp_proto_compile")
+
+cpp_proto_compile(
+    name = "cpp_tortilla_proto",
+    protos = [":tortilla_proto"],
+)
