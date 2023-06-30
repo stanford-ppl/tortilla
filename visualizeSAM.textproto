@@ -1,0 +1,43 @@
+ProgramGraph {
+  name: "SAM-Addition"
+
+  operators {
+    id: 10
+    fiber_lookup {
+      ref {
+        id: 10
+      }
+      output_ref {
+        id: 7   
+      }
+      output_crd {
+        id: 7  
+      }
+      index: "i"
+      tensor: "B"
+      mode: 0
+      format: "compressed"
+      src: true
+      root: true
+      label: "FiberLookup i: + B0\ncompressed"
+    }
+  }
+
+  operators {
+    id: 9
+    joiner{
+      join_type: UNION
+        bundles {
+          crd {
+            id: 6   
+          }
+          ref {
+            id: 6 
+          }
+        }
+        index: "i"
+        label="union i"
+    }
+  }
+
+}
