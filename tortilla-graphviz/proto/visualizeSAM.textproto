@@ -1,0 +1,19 @@
+ProgramGraph {
+  name: "SimpleProgram"
+  operators: [
+    {
+      name: "SimpleOperator"
+      id: 1
+      op {
+        broadcast {
+          input {
+            id: 2
+          }
+          output {
+            id: 3
+          }
+        }
+      }
+    }
+  ]
+}

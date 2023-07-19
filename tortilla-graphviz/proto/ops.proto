@@ -33,17 +33,19 @@ message Joiner {
   }
   message JoinBundle {
     CrdStream.StreamID crd = 1;
-    RefStream.StreamID ref = 2;
+    optional string crd_label = 2;
+    RefStream.StreamID ref = 3;
+    optional string ref_label = 4;
   }
 
   Type join_type = 1;
   repeated JoinBundle bundles = 2;
   optional string index = 3;
-  optional string lavel = 4;
+  optional string label = 4;
 }
 
 message FiberLookup {
-  RefStream.StreamID ref = 1;
+  bool ref = 1;
   RefStream.StreamID output_ref = 2;
   CrdStream.StreamID output_crd = 3;
   string index = 4;
@@ -56,15 +58,17 @@ message FiberLookup {
 }
 
 message FiberWrite {
-  CrdStream.StreamID input_crd = 1;
-  string index = 2;
-  string tensor = 3;
-  uint32 mode = 4;
-  string format = 5;
-  uint64 segsize = 6;
-  uint32 crdsize = 7;
-  bool sink = 8;
-  optional string label = 9;
+  bool ref = 1;
+  CrdStream.StreamID input_crd = 2;
+  optional string index = 3;
+  string tensor = 4;
+  optional string modeVal = 5;
+  optional string format = 6;
+  optional uint64 segsize = 7;
+  optional uint32 crdsize = 8;
+  optional string size = 9;
+  bool sink = 10;
+  optional string label = 11;
 }
 
 message Repeat {
