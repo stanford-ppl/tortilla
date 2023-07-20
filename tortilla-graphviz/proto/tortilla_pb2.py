@@ -11,11 +11,11 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
-import stream_pb2 as stream__pb2
 import ops_pb2 as ops__pb2
+import stream_pb2 as stream__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0etortilla.proto\x1a\x0cstream.proto\x1a\tops.proto\"O\n\x0cProgramGraph\x12\x11\n\x04name\x18\x01 \x01(\tH\x00\x88\x01\x01\x12\x1d\n\toperators\x18\x02 \x03(\x0b\x32\n.OperationB\x07\n\x05_nameJ\x04\x08\x03\x10\x0b\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0etortilla.proto\x1a\tops.proto\x1a\x0cstream.proto\"O\n\x0cProgramGraph\x12\x11\n\x04name\x18\x01 \x01(\tH\x00\x88\x01\x01\x12\x1d\n\toperators\x18\x02 \x03(\x0b\x32\n.OperationB\x07\n\x05_nameJ\x04\x08\x03\x10\x0b\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

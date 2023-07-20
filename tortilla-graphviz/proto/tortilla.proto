@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-import "stream.proto";
 import "ops.proto";
+import "stream.proto";
 
 message ProgramGraph {
   optional string name = 1;
