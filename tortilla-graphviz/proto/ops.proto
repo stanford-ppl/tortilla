@@ -23,13 +23,13 @@ message Operation {
 
 message Broadcast {
   CrdStream.StreamID input = 1;
-  repeated CrdStream.StreamID output = 2;
+  repeated CrdStream.StreamID outputs = 2;
 }
 
 message Joiner {
   enum Type {
-    INTERSECT = 0;
-    UNION = 1;
+    TYPE_INTERSECT_UNSPECIFIED = 0;
+    TYPE_UNION = 1;
   }
   message JoinBundle {
     CrdStream.StreamID crd = 1;
@@ -39,22 +39,26 @@ message Joiner {
   }
 
   Type join_type = 1;
-  repeated JoinBundle bundles = 2;
+  repeated JoinBundle input_pairs = 2;
   optional string index = 3;
   optional string label = 4;
+  RefStream.StreamID output_ref1 = 5;
+  RefStream.StreamID output_ref2 = 6;
+  CrdStream.StreamID output_crd = 7;
 }
 
 message FiberLookup {
   bool ref = 1;
-  RefStream.StreamID output_ref = 2;
-  CrdStream.StreamID output_crd = 3;
-  string index = 4;
-  string tensor = 5;
-  uint32 mode = 6;
-  string format = 7;
-  bool src = 8;
-  bool root = 9;
-  optional string label = 10;
+  RefStream.StreamID input_ref = 2;
+  RefStream.StreamID output_ref = 3;
+  CrdStream.StreamID output_crd = 4;
+  string index = 5;
+  string tensor = 6;
+  uint32 mode = 7;
+  string format = 8;
+  bool src = 9;
+  bool root = 10;
+  optional string label = 11;
 }
 
 message FiberWrite {
@@ -62,18 +66,20 @@ message FiberWrite {
   CrdStream.StreamID input_crd = 2;
   optional string index = 3;
   string tensor = 4;
-  optional string modeVal = 5;
+  optional string mode_val = 5;
   optional string format = 6;
-  optional uint64 segsize = 7;
-  optional uint32 crdsize = 8;
+  optional string segsize = 7;
+  optional string crdsize = 8;
   optional string size = 9;
   bool sink = 10;
   optional string label = 11;
+  uint32 mode = 12;
 }
 
 message Repeat {
   RefStream.StreamID input_ref = 1;
-  RepSigStream.StreamID input_rep_sig = 2;
+  RefStream.StreamID output_ref = 2;
+  RepSigStream.StreamID input_rep_sig = 3;
 }
 
 message RepeatSig {
@@ -98,14 +104,14 @@ message ALU {
   }
 
   enum ALUOp {
-    ADD = 0;
-    SUB = 1;
-    MUL = 2;
-    DIV = 3;
-    EXP = 4;
-    SIN = 5;
-    COS = 6;
-    MAX = 7;
+    ALUOP_ADD_UNSPECIFIED = 0;
+    ALUOP_SUB = 1;
+    ALUOP_MUL = 2;
+    ALUOP_DIV = 3;
+    ALUOP_EXP = 4;
+    ALUOP_SIN = 5;
+    ALUOP_COS = 6;
+    ALUOP_MAX = 7;
   }
   message Stage {
     repeated uint64 inputs = 1;
@@ -145,6 +151,6 @@ message CoordMask {
   RefStream.StreamID output_ref = 6;
 }
 
-message arrayvals {
+message ArrayVals {
   string tensor = 1;
 }
