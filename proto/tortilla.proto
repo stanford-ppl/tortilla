@@ -1,10 +1,10 @@
 syntax = "proto3";
 
 import "ops.proto";
-import "stream.proto";
 
 message ProgramGraph {
-  optional string name = 1;
+  // optional string name = 1;
+  string name = 1;
   repeated Operation operators = 2;
 
   // Reserved for additional metadata. Blame Rubens if you need more than 8 fields

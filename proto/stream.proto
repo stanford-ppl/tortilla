@@ -5,7 +5,8 @@ message RefStream {
     uint64 id = 1;
   }
   StreamID id = 1;
-  optional string name = 2;
+  // optional string name = 2;
+  string name = 2;
 }
 
 message ValStream {
@@ -13,7 +14,8 @@ message ValStream {
     uint64 id = 1;
   }
   StreamID id = 1;
-  optional string name = 2;
+  // optional string name = 2;
+  string name = 2;
 }
 
 message CrdStream {
@@ -21,7 +23,8 @@ message CrdStream {
     uint64 id = 1;
   }
   StreamID id = 1;
-  optional string name = 2;
+  // optional string name = 2;
+  string name = 2;
 }
 
 message RepSigStream {
@@ -29,5 +32,6 @@ message RepSigStream {
     uint64 id = 1;
   }
   StreamID id = 1;
-  optional string name = 2;
+  // optional string name = 2;
+  string name = 2;
 }
