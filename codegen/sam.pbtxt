@@ -1,54 +1,55 @@
 name: "SimpleProgram",
 operators [
   {
-    name: "fiber_lookup"
+    name: "fiber_lookup",
     id: 10
     fiber_lookup: {
       output_ref {
         id: 9
-      }
+      },
       output_crd {
         id: 9
-      }
-      index: "i"
-      tensor: "B"
-      mode: 0
-      format: "compressed"
-      src: true
-      root: true
+      },
+      index: "i",
+      tensor: "B",
+      mode: 0,
+      format: "compressed",
+      src: true,
+      root: true,
     }
   },
   {
-    name: "fiber_lookup"
+    name: "fiber_lookup",
+    id: 
     fiber_lookup: {
       output_ref {
         id: 9
-      }
+      },
       output_crd {
         id: 9
-      }
-      index: "i"
-      tensor: "C"
-      mode: 0
-      format: "compressed"
-      src: true
-      root: true
+      },
+      index: "i",
+      tensor: "C",
+      mode: 0,
+      format: "compressed",
+      src: true,
+      root: true,
     }
   },
   {
-    name: "Union"
-    id: 9
+    name: "Union",
+    id: 9,
     joiner: {
-        join_type: TYPE_UNION
+        join_type: TYPE_UNION,
         input_pairs: [{ 
           crd: {
             id: 2
-          }
-          crd_label: "crd"
+          },
+          crd_label: "crd",
           ref: {
             id: 0
-          }
-          ref_label: "ref_out-B"
+          },
+          ref_label: "ref_out-B",
         },
         { 
           crd: {
