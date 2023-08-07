@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package tortilla; 
+package tortilla;
 
 import "tortilla.proto";
 
