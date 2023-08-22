@@ -23,6 +23,7 @@ message Operation {
     ArrayVals array = 22;
     SparseAccumulator spacc = 23;
     ValWrite val_write = 24;
+    Intrinsic func = 25;
   }
 }
 
@@ -219,4 +220,12 @@ message ArrayVals {
   RefStream input_ref = 2;
   ValStream output_val = 3;
   string label = 4;
+}
+
+message Intrinsic {
+  string name = 1;
+  ValStream input_val = 2;
+  repeated CrdStream inputs = 3;
+  ValStream output_val = 4;
+  repeated CrdStream outputs = 5;
 }
