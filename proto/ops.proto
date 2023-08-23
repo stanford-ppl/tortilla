@@ -175,13 +175,13 @@ message Reduce {
 
 message SparseAccumulator {
   CrdStream input_inner_crd = 1;
-  CrdStream output_inner_crd = 2;
-  CrdStream input_outer_crd = 3;
+  repeated CrdStream output_inner_crds = 2;
+  repeated CrdStream input_outer_crds = 3;
   ValStream input_val = 4;
   ValStream output_val = 5;
   uint64 order = 6;
   string inner_crd = 7;
-  repeated string outer_crd = 8;
+  repeated string outer_crds = 8;
   string label = 9;
   // string val = 10;
 }
