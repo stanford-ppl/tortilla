@@ -23,6 +23,7 @@ message Operation {
     ArrayVals array = 22;
     SparseAccumulator spacc = 23;
     ValWrite val_write = 24;
+    Intrinsic func = 25;
   }
 }
 
@@ -175,13 +176,14 @@ message Reduce {
 message SparseAccumulator {
   CrdStream input_inner_crd = 1;
   CrdStream output_inner_crd = 2;
-  CrdStream input_outer_crd = 3;
+  repeated CrdStream input_outer_crds = 3;
   ValStream input_val = 4;
   ValStream output_val = 5;
   uint64 order = 6;
   string inner_crd = 7;
-  repeated string outer_crd = 8;
+  repeated string outer_crds = 8;
   string label = 9;
+  repeated CrdStream output_outer_crds = 10;
   // string val = 10;
 }
 
@@ -219,4 +221,12 @@ message ArrayVals {
   RefStream input_ref = 2;
   ValStream output_val = 3;
   string label = 4;
+}
+
+message Intrinsic {
+  string name = 1;
+  ValStream input_val = 2;
+  repeated CrdStream inputs = 3;
+  ValStream output_val = 4;
+  repeated CrdStream outputs = 5;
 }
