@@ -9,7 +9,7 @@ message Operation {
   uint64 id = 2;
   reserved 3 to 10;
   oneof op {
-    Broadcast broadcast = 11;
+    Generator root = 11;
     Joiner joiner = 12;
     FiberLookup fiber_lookup = 13;
     FiberWrite fiber_write = 14;
@@ -24,7 +24,14 @@ message Operation {
     SparseAccumulator spacc = 23;
     ValWrite val_write = 24;
     Intrinsic func = 25;
+    Broadcast broadcast = 26;
   }
+}
+
+message Generator {
+  string label = 1;
+  string tensor = 2;
+  RefStream output_ref = 3;
 }
 
 message Broadcast {
