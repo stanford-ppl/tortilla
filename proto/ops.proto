@@ -77,9 +77,8 @@ message Joiner {
   repeated JoinBundle input_pairs = 2;
   string index = 3;
   string label = 4;
-  RefStream output_ref1 = 5;
-  RefStream output_ref2 = 6;
-  CrdStream output_crd = 7;
+  repeated RefStream output_refs = 5;
+  CrdStream output_crd = 6;
 }
 
 message FiberLookup {
@@ -128,6 +127,7 @@ message Repeat {
   string index = 5;
   bool root = 6;
   string tensor = 7;
+  CrdStream input_crd = 8;
 }
 
 message RepeatSig {
