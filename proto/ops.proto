@@ -228,6 +228,8 @@ message ArrayVals {
   RefStream input_ref = 2;
   ValStream output_val = 3;
   string label = 4;
+  uint64 stream_shape = 5;
+  bool blocked = 6;
 }
 
 message Intrinsic {
