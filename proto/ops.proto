@@ -25,6 +25,8 @@ message Operation {
     ValWrite val_write = 24;
     Intrinsic func = 25;
     Broadcast broadcast = 26;
+    Fork fork = 27;
+    Join join = 28;
   }
 }
 
