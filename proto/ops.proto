@@ -27,6 +27,7 @@ message Operation {
     Broadcast broadcast = 26;
     Fork fork = 27;
     Join join = 28;
+    GenRef gen_ref = 29;
   }
 }
 
@@ -184,6 +185,12 @@ message Reduce {
   string label = 3;
   uint64 stream_shape = 4;
   bool blocked = 5;
+}
+
+message GenRef {
+  ValStream input_crd = 1;
+  ValStream output_ref = 2;
+  string label = 3;
 }
 
 message SparseAccumulator {
