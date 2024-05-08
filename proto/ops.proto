@@ -180,11 +180,16 @@ message ALU {
 }
 
 message Reduce {
+  enum Type {
+    ADD = 0;
+    MAX = 1;
+  }
   ValStream input_val = 1;
   ValStream output_val = 2;
   string label = 3;
   uint64 stream_shape = 4;
   bool blocked = 5;
+  Type reduce_type = 6;
 }
 
 message GenRef {
