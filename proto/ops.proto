@@ -123,6 +123,10 @@ message ValWrite {
 }
 
 message Repeat {
+  enum Type {
+    REF = 0;
+    VAL = 1;
+  }
   RefStream input_ref = 1;
   RefStream output_ref = 2;
   RepSigStream input_rep_sig = 3;
@@ -131,6 +135,7 @@ message Repeat {
   bool root = 6;
   string tensor = 7;
   RefStream input_rep_ref = 8;
+  Type repeat_type = 9;
 }
 
 message RepeatSig {
