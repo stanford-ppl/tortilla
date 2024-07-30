@@ -68,11 +68,16 @@ message Joiner {
     INTERSECT = 0;
     UNION = 1;
   }
+  enum RefType {
+    REF = 0;
+    VAL = 1;
+  }
   message JoinBundle {
     CrdStream crd = 1;
     // optional string crd_label = 2;
     // string crd_label = 2;
     RefStream ref = 3;
+    RefType ref_type = 4;
     // string ref_label = 4;
   }
 
