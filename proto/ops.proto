@@ -72,20 +72,23 @@ message Joiner {
     REF = 0;
     VAL = 1;
   }
+  message Payload {
+    oneof stream {
+      RefStream ref_stream = 1;
+      ValStream val_stream = 2;
+    }
+  }
+
   message JoinBundle {
     CrdStream crd = 1;
-    // optional string crd_label = 2;
-    // string crd_label = 2;
-    RefStream ref = 3;
-    RefType ref_type = 4;
-    // string ref_label = 4;
+    Payload in_ref = 2;
   }
 
   Type join_type = 1;
   repeated JoinBundle input_pairs = 2;
   string index = 3;
   string label = 4;
-  repeated RefStream output_refs = 5;
+  repeated Payload output_refs = 5;
   CrdStream output_crd = 6;
 }
 
