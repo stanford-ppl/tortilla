@@ -131,19 +131,23 @@ message ValWrite {
 }
 
 message Repeat {
-  enum Type {
-    REF = 0;
-    VAL = 1;
+  oneof input_ref {
+    RefStream in_ref = 1;
+    ValStream in_val = 2;
   }
-  RefStream input_ref = 1;
-  RefStream output_ref = 2;
-  RepSigStream input_rep_sig = 3;
-  string label = 4;
-  string index = 5;
-  bool root = 6;
-  string tensor = 7;
-  RefStream input_rep_ref = 8;
-  Type repeat_type = 9;
+  oneof output_ref {
+    RefStream out_ref = 3;
+    ValStream out_val= 4;
+  };
+  oneof input_rep_sig {
+    RefStream rep_ref = 5;
+    ValStream rep_val= 6;
+  };
+  string label = 7;
+  string index = 8;
+  bool root = 9;
+  string tensor = 10;
+//  RefStream input_rep_ref = 11;
 }
 
 message RepeatSig {
