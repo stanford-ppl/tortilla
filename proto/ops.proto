@@ -182,6 +182,11 @@ message ALU {
     SIN = 5;
     COS = 6;
     MAX = 7;
+    SCALARADD = 8;
+    SCALARMUL = 9;
+    SCALARDIV = 10;
+    RSQRT = 11;
+    SIGMOID = 12;
   }
   message Stage {
     repeated uint64 inputs = 1;
