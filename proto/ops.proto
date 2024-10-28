@@ -187,6 +187,7 @@ message ALU {
     SCALARDIV = 10;
     RSQRT = 11;
     SIGMOID = 12;
+    ElemMul = 13;
   }
   message Stage {
     repeated uint64 inputs = 1;
