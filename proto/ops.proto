@@ -187,7 +187,7 @@ message ALU {
     SCALARDIV = 10;
     RSQRT = 11;
     SIGMOID = 12;
-    ElemMul = 13;
+    ELEMMUL = 13;
   }
   message Stage {
     repeated uint64 inputs = 1;
@@ -207,6 +207,7 @@ message Reduce {
   enum Type {
     ADD = 0;
     MAX = 1;
+    ADDSUM = 2;
   }
   ValStream input_val = 1;
   ValStream output_val = 2;
