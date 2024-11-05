@@ -28,6 +28,7 @@ message Operation {
     Fork fork = 27;
     Join join = 28;
     GenRef gen_ref = 29;
+    Locate locate = 30;
   }
 }
 
@@ -247,6 +248,15 @@ message CoordHold {
   string inner_crd = 5;
   string outer_crd = 6;
   string label = 7;
+}
+
+message Locate {
+  CrdStream input_crd = 1;
+  RefStream input_ref = 2;
+  RefStream output_ref1 = 3;
+  RefStream output_ref2 = 4;
+  CrdStream output_crd = 5;
+  string label = 6;
 }
 
 message CoordDrop {
