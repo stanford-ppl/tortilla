@@ -29,6 +29,7 @@ message Operation {
     Join join = 28;
     GenRef gen_ref = 29;
     Locate locate = 30;
+    Concat concat = 31;
   }
 }
 
@@ -293,6 +294,20 @@ message Intrinsic {
   repeated CrdStream inputs = 3;
   ValStream output_val = 4;
   repeated CrdStream outputs = 5;
+}
+
+message Concat {
+  // Flattened input coord streams: [t0.d0, ..., t0.d{r-1}, t1.d0, ..., t{m-1}.d{r-1}]
+  repeated CrdStream in_crds = 1;
+  // One value stream per input tensor
+  repeated ValStream in_vals = 2;
+  uint64 axis = 3; // 0 <= axis < rank
+  uint64 rank = 4; // common rank across inputs
+  // Result coord streams (exactly 'rank' outputs)
+  repeated CrdStream out_crds = 5;
+  // Result value stream
+  ValStream out_val = 6;
+  string label = 7;
 }
 
 message Fork {
